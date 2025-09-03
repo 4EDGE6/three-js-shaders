@@ -13,8 +13,33 @@ void main() {
 
     // float strength = 1.0 - vUv.y;
     // gl_FragColor = vec4(vec3(strength), 1.0);
-    
-    float strength = vUv.y * 10.0;
-    gl_FragColor = vec4(vec3(strength), 1.0);
 
+    // float strength = mod(vUv.y * 10.0, 1.0);
+    // gl_FragColor = vec4(vec3(strength), 1.0);
+
+    // float strength = mod(vUv.y * 10.0, 1.0);
+
+    // if(strength < 0.5) {
+    //     strength = 0.0;
+    // } else {
+    //     strength = 1.0;
+    // }
+    // strength = step(0.5, strength);
+    // gl_FragColor = vec4(vec3(strength), 1.0);
+
+    // float strength = mod(vUv.y * 10.0, 1.0);
+    // strength = step(0.8, strength);
+    // gl_FragColor = vec4(vec3(strength), 1.0);
+
+    // float strength = step(0.8, mod(vUv.x * 10.0, 1.0));
+    // strength += step(0.8, mod(vUv.y * 10.0, 1.0));
+    // gl_FragColor = vec4(vec3(strength), 1.0);
+
+    // float strength = step(0.8, mod(vUv.x * 10.0, 1.0));
+    // strength *= step(0.8, mod(vUv.y * 10.0, 1.0));
+    // gl_FragColor = vec4(vec3(strength), 1.0);
+
+    float strength = step(0.4, mod(vUv.x * 10.0, 1.0));
+    strength *= step(0.8, mod(vUv.y * 10.0, 1.0));
+    gl_FragColor = vec4(vec3(strength), 1.0);
 }
