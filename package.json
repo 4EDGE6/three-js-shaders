@@ -9,9 +9,10 @@
     "vite-plugin-restart": "^1.0.0"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "lil-gui": "^0.20.0",
     "normalize.css": "^8.0.1",
-    "three": "^0.179.1",
+    "three": "^0.181.1",
     "vite-plugin-glsl": "^1.5.1"
   }
 }
