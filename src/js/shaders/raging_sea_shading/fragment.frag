@@ -15,7 +15,7 @@ void main() {
     vec3 normal = normalize(vNormal);
 
     vec3 light = vec3(0.);
-    light += pointLight(vec3(1.), 10., normal, vec3(0., .25, 0.), viewDirection, 30., vPosition, .95);
+    light += pointLight(vec3(1.), 10., normal, vec3(0., .25, 0.), viewDirection, 30., vPosition, 1.);
 
     float mixStrength = (vElevation + uColorOffset) * uColorMultiplier;
     mixStrength = smoothstep(.0, 1., mixStrength);

@@ -26,8 +26,8 @@ const canvas = document.getElementById("renderer");
 
 const gui = new GUI();
 const debug = {
-  depthColor: "#ff7800",
-  surfaceColor: "#1a5fb4",
+  depthColor: "#ad1017",
+  surfaceColor: "#000",
 };
 
 const scene = new Scene();
@@ -140,10 +140,6 @@ geometry.deleteAttribute("uv");
 const plane = new Mesh(geometry, material);
 plane.rotation.x = Math.PI / 2;
 scene.add(plane);
-
-const axesHelper = new AxesHelper();
-axesHelper.position.y = 0.25;
-scene.add(axesHelper);
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.toneMapping = ACESFilmicToneMapping;
