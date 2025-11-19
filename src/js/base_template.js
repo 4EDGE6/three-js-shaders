@@ -29,7 +29,7 @@ window.addEventListener("resize", () => {
   camera.aspect = aspectRatio;
   camera.updateProjectionMatrix();
   renderer.setSize(screenSize.width, screenSize.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
 const timer = new Timer();
