@@ -3,6 +3,7 @@ import {
   BufferAttribute,
   CanvasTexture,
   DoubleSide,
+  LinearFilter,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -143,6 +144,41 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(screenSize.width, screenSize.height);
   renderer.setPixelRatio(screenSize.devicePixelRatio);
+});
+
+// Create file input dynamically
+const imageInput = document.createElement("input");
+imageInput.type = "file";
+imageInput.accept = "image/*";
+imageInput.style.position = "fixed";
+imageInput.style.top = "10px";
+imageInput.style.right = "10px";
+imageInput.style.zIndex = 20;
+imageInput.style.padding = "6px";
+imageInput.style.background = "#000";
+imageInput.style.color = "#fff";
+imageInput.style.borderRadius = "6px";
+imageInput.style.cursor = "pointer";
+
+document.body.appendChild(imageInput);
+
+// Handle file upload -> update shader texture
+imageInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const url = URL.createObjectURL(file);
+
+  textureLoader.load(url, (loadedTexture) => {
+    loadedTexture.minFilter = LinearFilter;
+    loadedTexture.magFilter = LinearFilter;
+    loadedTexture.generateMipmaps = false;
+
+    // Update shader uniform
+    particlesMaterial.uniforms.uPictureTexture.value = loadedTexture;
+
+    console.log("✔ Custom image applied");
+  });
 });
 
 const timer = new Timer();
