@@ -99,7 +99,7 @@ const particlesMaterial = new ShaderMaterial({
   uniforms: {
     uResolution: new Uniform(screenSize.resolution),
     uPictureTexture: new Uniform(
-      textureLoader.load("/textures/images/adesh.png")
+      textureLoader.load("/textures/images/image.png")
     ),
     uCanvasTexture: new Uniform(displacement.texture),
   },
