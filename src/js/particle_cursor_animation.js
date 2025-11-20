@@ -53,10 +53,10 @@ displacement.canvas.height = 128;
 displacement.canvas.style.position = "fixed";
 displacement.canvas.style.width = "256px";
 displacement.canvas.style.height = "256px";
-displacement.canvas.style.top = 0;
-displacement.canvas.style.left = 0;
-displacement.canvas.style.zIndex = 10;
-document.body.append(displacement.canvas);
+// displacement.canvas.style.top = 0;
+// displacement.canvas.style.left = 0;
+// displacement.canvas.style.zIndex = 10;
+// document.body.append(displacement.canvas);
 
 displacement.context = displacement.canvas.getContext("2d");
 // displacement.context.fillStyle = 'red';
@@ -148,6 +148,7 @@ window.addEventListener("resize", () => {
 
 // Create file input dynamically
 const imageInput = document.createElement("input");
+
 imageInput.type = "file";
 imageInput.accept = "image/*";
 imageInput.style.position = "fixed";
@@ -155,6 +156,7 @@ imageInput.style.top = "10px";
 imageInput.style.right = "10px";
 imageInput.style.zIndex = 20;
 imageInput.style.padding = "6px";
+imageInput.style.fontSize = "13px";
 imageInput.style.background = "#000";
 imageInput.style.color = "#fff";
 imageInput.style.borderRadius = "6px";
