@@ -56,8 +56,8 @@ const gltf = await gltfLoader.loadAsync("/models/ship.glb");
 const scene = new Scene();
 
 const camera = new PerspectiveCamera(45, aspectRatio, 0.1, 1000);
-camera.position.z = 15;
-camera.position.x = 9;
+camera.position.z = 12;
+camera.position.x = 12;
 camera.position.y = 5;
 scene.add(camera);
 
