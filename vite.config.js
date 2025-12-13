@@ -14,6 +14,7 @@ export default defineConfig({
     outDir: "../dist",
     emptyOutDir: true,
     sourcemap: true,
+    target: "esnext",
   },
   plugins: [
     restart({ restart: ["../static/**"] }),

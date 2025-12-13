@@ -3,6 +3,8 @@ uniform vec2 uResolution;
 uniform sampler2D uParticleTexture;
 
 attribute vec2 aParticlesUv;
+attribute vec3 aColor;
+attribute float aSize;
 
 varying vec3 vColor;
 
@@ -15,8 +17,12 @@ void main() {
 
     gl_Position = projectionPosition;
 
-    gl_PointSize = uSize * uResolution.y;
+    float sizeIn = smoothstep(.0, 1., particle.a);
+    float sizeOut = 1. - smoothstep(.7, 1., particle.a);
+    float size = min(sizeIn, sizeOut);
+
+    gl_PointSize = size * aSize * uSize * uResolution.y;
     gl_PointSize *= 1. / -viewPosition.z;
 
-    vColor = vec3(1.0);
+    vColor = aColor;
 }
