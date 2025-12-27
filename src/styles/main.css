@@ -35,3 +35,7 @@ canvas {
   top: 0;
   left: 0;
 }
+
+.lil-gui {
+  --background-color: #000;
+}

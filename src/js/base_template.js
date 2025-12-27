@@ -1,4 +1,11 @@
-import { PerspectiveCamera, Scene, Timer, WebGLRenderer } from "three";
+import GUI from "lil-gui";
+import {
+  AxesHelper,
+  PerspectiveCamera,
+  Scene,
+  Timer,
+  WebGLRenderer,
+} from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 
 const screenSize = {
@@ -8,11 +15,15 @@ const screenSize = {
 let aspectRatio = screenSize.width / screenSize.height;
 const canvas = document.getElementById("renderer");
 
+const gui = new GUI();
 const scene = new Scene();
 
 const camera = new PerspectiveCamera(45, aspectRatio, 0.1, 1000);
 camera.position.z = 5;
 scene.add(camera);
+
+const axesHelper = new AxesHelper(5);
+scene.add(axesHelper);
 
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
@@ -31,6 +42,11 @@ window.addEventListener("resize", () => {
   renderer.setSize(screenSize.width, screenSize.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
+
+const cameraFolder = gui.addFolder("camera");
+cameraFolder.add(camera.position, "x", -100, 100, 1);
+cameraFolder.add(camera.position, "y", -100, 100, 1);
+cameraFolder.add(camera.position, "z", -100, 100, 1);
 
 const timer = new Timer();
 
