@@ -19,18 +19,16 @@ import {
   Uniform,
   WebGLRenderer,
 } from "three";
+import CustomShaderMaterial from "three-custom-shader-material/vanilla";
 import {
   DRACOLoader,
   GLTFLoader,
   HDRLoader,
   OrbitControls,
 } from "three/examples/jsm/Addons.js";
-import CustomShaderMaterial from "three-custom-shader-material/vanilla";
-import vertexShader from "./shaders/wobbly_sphere/vertex.vert";
-import fragmentShader from "./shaders/wobbly_sphere/fragment.frag";
 import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
-import { color } from "three/tsl";
-import { Vector3 } from "three/webgpu";
+import fragmentShader from "./shaders/wobbly_sphere/fragment.frag";
+import vertexShader from "./shaders/wobbly_sphere/vertex.vert";
 
 const screenSize = {
   width: window.innerWidth,

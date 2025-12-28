@@ -43,10 +43,12 @@ window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
-const cameraFolder = gui.addFolder("camera");
+const debugFoler = gui.addFolder("Debug");
+const cameraFolder = debugFoler.addFolder("Camera");
 cameraFolder.add(camera.position, "x", -100, 100, 1);
 cameraFolder.add(camera.position, "y", -100, 100, 1);
 cameraFolder.add(camera.position, "z", -100, 100, 1);
+debugFoler.add(axesHelper, "visible").name("Axis");
 
 const timer = new Timer();
 
