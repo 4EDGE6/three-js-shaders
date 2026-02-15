@@ -9,9 +9,10 @@
     "vite-plugin-restart": "^1.0.0"
   },
   "dependencies": {
-    "gsap": "^3.13.0",
+    "gsap": "^3.14.2",
     "lil-gui": "^0.20.0",
     "normalize.css": "^8.0.1",
+    "spectorjs": "^0.9.30",
     "three": "^0.182.0",
     "three-bvh-csg": "^0.0.17",
     "three-custom-shader-material": "^6.4.0",
