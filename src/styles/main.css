@@ -58,3 +58,53 @@ canvas {
   transform: scaleX(0) translateY(-50%);
   transform-origin: top right;
 }
+
+.point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.point .label {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #00000077;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 200;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  transform: translate(-50%, -50%) scale(0, 0);
+}
+
+.point.visible .label {
+  transform: translate(-50%, -50%) scale(1, 1);
+}
+
+.point .text {
+  position: absolute;
+  top: calc(50% + 45px);
+  left: calc(50% + 50px);
+  transform: translate(-50%, -50%);
+  background-color: #00000077;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 200;
+  padding: 20px;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label:hover ~ .text {
+  opacity: 1;
+  pointer-events: initial;
+}
